@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		1602298B2B5B991100D2B6EE /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 160229892B5B991100D2B6EE /* Roboto-Medium.ttf */; };
 		1602298C2B5B991100D2B6EE /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1602298A2B5B991100D2B6EE /* Roboto-Bold.ttf */; };
+		1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */; };
+		1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1712B5BEB8D00C970EF /* AlertModel.swift */; };
 		16D084E62B59952A00F3AC46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D084E52B59952A00F3AC46 /* AppDelegate.swift */; };
 		16D084E82B59952A00F3AC46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D084E72B59952A00F3AC46 /* SceneDelegate.swift */; };
-		16D084EA2B59952A00F3AC46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D084E92B59952A00F3AC46 /* ViewController.swift */; };
+		16D084EA2B59952A00F3AC46 /* JokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D084E92B59952A00F3AC46 /* JokeViewController.swift */; };
 		16D084ED2B59952A00F3AC46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16D084EB2B59952A00F3AC46 /* Main.storyboard */; };
 		16D084F22B59952C00F3AC46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16D084F02B59952C00F3AC46 /* LaunchScreen.storyboard */; };
 		16D084FB2B59B03700F3AC46 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D084FA2B59B03700F3AC46 /* UIColor + Extensions.swift */; };
@@ -22,10 +24,12 @@
 /* Begin PBXFileReference section */
 		160229892B5B991100D2B6EE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		1602298A2B5B991100D2B6EE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		1689D1712B5BEB8D00C970EF /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		16D084E22B59952A00F3AC46 /* Joke Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Joke Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D084E52B59952A00F3AC46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16D084E72B59952A00F3AC46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		16D084E92B59952A00F3AC46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16D084E92B59952A00F3AC46 /* JokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeViewController.swift; sourceTree = "<group>"; };
 		16D084EC2B59952A00F3AC46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16D084EE2B59952C00F3AC46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16D084F12B59952C00F3AC46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +58,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		1689D16E2B5BEB4700C970EF /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		16D084D92B59952A00F3AC46 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +87,7 @@
 			children = (
 				16D084FD2B5B7F7F00F3AC46 /* Models */,
 				16D084F92B59B01700F3AC46 /* Helpers */,
+				1689D16E2B5BEB4700C970EF /* Presentation */,
 				16D084FE2B5B831400F3AC46 /* Controllers */,
 				16D084FC2B5B7F2D00F3AC46 /* Resources */,
 				16D084E52B59952A00F3AC46 /* AppDelegate.swift */,
@@ -107,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				16D084FF2B5B868500F3AC46 /* JokeModel.swift */,
+				1689D1712B5BEB8D00C970EF /* AlertModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,7 +128,7 @@
 		16D084FE2B5B831400F3AC46 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				16D084E92B59952A00F3AC46 /* ViewController.swift */,
+				16D084E92B59952A00F3AC46 /* JokeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,11 +206,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16D084EA2B59952A00F3AC46 /* ViewController.swift in Sources */,
+				16D084EA2B59952A00F3AC46 /* JokeViewController.swift in Sources */,
 				16D084FB2B59B03700F3AC46 /* UIColor + Extensions.swift in Sources */,
 				16D085002B5B868500F3AC46 /* JokeModel.swift in Sources */,
 				16D084E62B59952A00F3AC46 /* AppDelegate.swift in Sources */,
+				1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */,
 				16D084E82B59952A00F3AC46 /* SceneDelegate.swift in Sources */,
+				1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,15 +19,15 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Joke View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Joke_Generator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="JokeViewController" customModule="Joke_Generator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ilq-qD-GzP" userLabel="Main Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ilq-qD-GzP" userLabel="Main Stack View">
                                 <rect key="frame" x="20" y="59" width="353" height="759"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXM-Sp-dKQ" userLabel="Category label">
@@ -135,11 +135,13 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonShowPunchlineOrNextJokeDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vgX-6R-dBc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="YDe-7P-x90" firstAttribute="leading" secondItem="Ilq-qD-GzP" secondAttribute="leading" id="6iP-jM-P90"/>
-                                    <constraint firstItem="bb5-3H-aw6" firstAttribute="top" secondItem="YDe-7P-x90" secondAttribute="bottom" constant="158" id="A8q-d2-2KF"/>
                                     <constraint firstAttribute="trailing" secondItem="bb5-3H-aw6" secondAttribute="trailing" constant="17" id="BZR-U7-BKu"/>
                                     <constraint firstAttribute="trailing" secondItem="YDe-7P-x90" secondAttribute="trailing" id="R6h-sQ-Sff"/>
                                     <constraint firstItem="bb5-3H-aw6" firstAttribute="leading" secondItem="Ilq-qD-GzP" secondAttribute="leading" constant="17" id="RQd-Bl-jMF"/>
@@ -156,6 +158,11 @@
                             <constraint firstItem="Ilq-qD-GzP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zq5-IV-z9n"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoryLabel" destination="sXM-Sp-dKQ" id="4U4-Nf-Ad4"/>
+                        <outlet property="setupLabel" destination="ccq-ey-BG0" id="FI3-2M-Icz"/>
+                        <outlet property="showPunchlineOrNextJokeButton" destination="bb5-3H-aw6" id="eW7-Ly-msd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
