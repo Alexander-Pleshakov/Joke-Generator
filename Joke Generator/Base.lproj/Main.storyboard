@@ -1,24 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Joke_Generator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ilq-qD-GzP" userLabel="Main Stack View">
+                                <rect key="frame" x="20" y="59" width="353" height="759"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXM-Sp-dKQ" userLabel="Category label">
+                                        <rect key="frame" x="133" y="0.0" width="87.333333333333314" height="23.666666666666668"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                        <color key="textColor" name="JG White"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YDe-7P-x90" userLabel="Setup Stack View">
+                                        <rect key="frame" x="0.0" y="181.66666666666666" width="353" height="359.33333333333337"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="POY-hS-jO6" userLabel="Top Stack View">
+                                                <rect key="frame" x="47" y="0.0" width="259" height="49"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jD6-6g-1gv" userLabel="Setup label">
+                                                        <rect key="frame" x="93" y="0.0" width="73.333333333333314" height="46"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="46" id="Yzf-zr-UOc"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
+                                                        <color key="textColor" name="JG TextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bK2-rT-0pS" userLabel="Separator View">
+                                                        <rect key="frame" x="0.0" y="46.000000000000028" width="259" height="3"/>
+                                                        <color key="backgroundColor" name="JG Background"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="3" id="WVB-wI-8Fn"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="bK2-rT-0pS" firstAttribute="leading" secondItem="POY-hS-jO6" secondAttribute="leading" id="loF-yL-li2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bK2-rT-0pS" secondAttribute="trailing" id="mUS-Wf-xRc"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="Setup text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccq-ey-BG0">
+                                                <rect key="frame" x="47" y="167.33333333333334" width="259" height="26"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                                                <color key="textColor" name="JG TextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gtB-74-Ull" userLabel="Bottom Stack View">
+                                                <rect key="frame" x="47" y="311.33333333333337" width="259" height="48"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDH-1Q-xgB" userLabel="Separator View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="259" height="3"/>
+                                                        <color key="backgroundColor" name="JG Background"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="3" id="Ody-aF-Fhp"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MR4-oF-c6w">
+                                                        <rect key="frame" x="0.0" y="3" width="259" height="45"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="TGT-Rj-Tnp"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="GDH-1Q-xgB" secondAttribute="trailing" id="NOs-Rb-x4I"/>
+                                                    <constraint firstItem="GDH-1Q-xgB" firstAttribute="leading" secondItem="gtB-74-Ull" secondAttribute="leading" id="eXr-lr-cwF"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="JG White"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ccq-ey-BG0" secondAttribute="trailing" constant="47" id="GZs-6O-41h"/>
+                                            <constraint firstAttribute="trailing" secondItem="POY-hS-jO6" secondAttribute="trailing" constant="47" id="Q8B-ZF-3NS"/>
+                                            <constraint firstItem="POY-hS-jO6" firstAttribute="leading" secondItem="YDe-7P-x90" secondAttribute="leading" constant="47" id="ZhH-ed-22P"/>
+                                            <constraint firstAttribute="trailing" secondItem="gtB-74-Ull" secondAttribute="trailing" constant="47" id="mQV-ng-S52"/>
+                                            <constraint firstItem="ccq-ey-BG0" firstAttribute="leading" secondItem="YDe-7P-x90" secondAttribute="leading" constant="47" id="phS-qh-yqh"/>
+                                            <constraint firstItem="gtB-74-Ull" firstAttribute="leading" secondItem="YDe-7P-x90" secondAttribute="leading" constant="47" id="vdX-qr-WaC"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-3H-aw6">
+                                        <rect key="frame" x="17" y="699" width="319" height="60"/>
+                                        <color key="backgroundColor" name="JG Yellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="iuo-gl-tL7"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show Punchline">
+                                            <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="21"/>
+                                            <color key="baseForegroundColor" name="JG DarkPurple"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YDe-7P-x90" firstAttribute="leading" secondItem="Ilq-qD-GzP" secondAttribute="leading" id="6iP-jM-P90"/>
+                                    <constraint firstItem="bb5-3H-aw6" firstAttribute="top" secondItem="YDe-7P-x90" secondAttribute="bottom" constant="158" id="A8q-d2-2KF"/>
+                                    <constraint firstAttribute="trailing" secondItem="bb5-3H-aw6" secondAttribute="trailing" constant="17" id="BZR-U7-BKu"/>
+                                    <constraint firstAttribute="trailing" secondItem="YDe-7P-x90" secondAttribute="trailing" id="R6h-sQ-Sff"/>
+                                    <constraint firstItem="bb5-3H-aw6" firstAttribute="leading" secondItem="Ilq-qD-GzP" secondAttribute="leading" constant="17" id="RQd-Bl-jMF"/>
+                                    <constraint firstItem="YDe-7P-x90" firstAttribute="top" secondItem="sXM-Sp-dKQ" secondAttribute="bottom" constant="158" id="pF8-qU-Omb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="JG Background"/>
+                        <constraints>
+                            <constraint firstItem="Ilq-qD-GzP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Dsm-Ys-qmk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ilq-qD-GzP" secondAttribute="trailing" constant="20" id="RUl-fe-9ii"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ilq-qD-GzP" secondAttribute="bottom" id="waA-N8-jne"/>
+                            <constraint firstItem="Ilq-qD-GzP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zq5-IV-z9n"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="58" y="-2"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="JG Background">
+            <color red="0.3919999897480011" green="0.39599999785423279" blue="0.6470000147819519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="JG DarkPurple">
+            <color red="0.21199999749660492" green="0.21600000560283661" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="JG TextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="JG White">
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="JG Yellow">
+            <color red="0.95300000905990601" green="0.91399997472763062" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
