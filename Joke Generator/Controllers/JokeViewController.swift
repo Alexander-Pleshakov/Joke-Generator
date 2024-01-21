@@ -17,6 +17,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     // MARK: Outlets
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var categoryLabel: UILabel!
     @IBOutlet private weak var showPunchlineOrNextJokeButton: UIButton!
     @IBOutlet private weak var setupLabel: UILabel!
@@ -26,10 +27,13 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.hidesWhenStopped = true
+        
         jokesLoader = JokesLoader(networkClient: NetworkClient())
         jokeFactory = JokeFactory(delegate: self, jokesLoader: jokesLoader)
         alertPresenter = AlertPresenter(delegate: self)
         
+        activityIndicator.startAnimating()
         jokeFactory.loadJoke()
         
         //show(model: currentJoke)
@@ -42,10 +46,8 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             return
         }
         currentJoke = joke
-//        DispatchQueue.main.async { [weak self] in
-//            self?.show(model: self?.currentJoke)
-//        }
         show(model: currentJoke)
+        activityIndicator.stopAnimating()
     }
     
     func didLoadDataFromServer() {
@@ -58,6 +60,12 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     // MARK: Private functions
     
+    private func goToNextJoke() {
+        activityIndicator.startAnimating()
+        categoryLabel.text = ""
+        setupLabel.text = ""
+    }
+    
     private func show(model joke: JokeModel?) {
         guard let joke = joke else {
             print("joke == nil")
@@ -69,7 +77,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     private func showPunchline(model joke: JokeModel?) {
         guard let joke = joke else { return }
-        var model = AlertModel(title: "Punchline", message: joke.punchline, buttonTitle: "Ok") { _ in
+        let model = AlertModel(title: "Punchline", message: joke.punchline, buttonTitle: "Ok") { _ in
             
         }
         alertPresenter?.show(model: model)
@@ -89,8 +97,8 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             
             showPunchline(model: currentJoke)
         } else {
+            goToNextJoke()
             jokeFactory.loadJoke()
-            show(model: currentJoke)
             
             button.setTitle("Show Punchline", for: .normal)
             
