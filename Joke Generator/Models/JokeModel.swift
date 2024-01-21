@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JokeModel {
+struct JokeModel: Decodable {
     let id: Int
     let type: String
     let setup: String
