@@ -29,9 +29,7 @@ class JokeViewController: UIViewController {
         alertPresenter = AlertPresenter(delegate: self)
         joke = jokes.getJoke()
         
-        showPunchlineOrNextJokeButton.semanticContentAttribute = .forceRightToLeft
-        showPunchlineOrNextJokeButton.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 21)
-        
+        //showPunchlineOrNextJokeButton.semanticContentAttribute = .forceRightToLeft
         show(model: joke)
     }
     
@@ -52,14 +50,14 @@ class JokeViewController: UIViewController {
     private func doActionAndChangeText(button: UIButton) {
         if button.titleLabel?.text == "Show Punchline" {
             button.setTitle("Next joke  ", for: .normal)
-            button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
+            //button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
             
             showPunchline(model: joke)
         } else {
             joke = jokes.getJoke()
             show(model: joke)
             
-            button.setImage(UIImage(), for: .normal)
+            //button.setImage(UIImage(), for: .normal)
             button.setTitle("Show Punchline", for: .normal)
             
         }

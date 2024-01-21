@@ -11,6 +11,8 @@
 		1602298C2B5B991100D2B6EE /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1602298A2B5B991100D2B6EE /* Roboto-Bold.ttf */; };
 		1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */; };
 		1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1712B5BEB8D00C970EF /* AlertModel.swift */; };
+		1689D1772B5D42DE00C970EF /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1762B5D42DE00C970EF /* NetworkClient.swift */; };
+		1689D1792B5D431C00C970EF /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1782B5D431C00C970EF /* NetworkClientProtocol.swift */; };
 		16D084E62B59952A00F3AC46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D084E52B59952A00F3AC46 /* AppDelegate.swift */; };
 		16D084E82B59952A00F3AC46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D084E72B59952A00F3AC46 /* SceneDelegate.swift */; };
 		16D084EA2B59952A00F3AC46 /* JokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D084E92B59952A00F3AC46 /* JokeViewController.swift */; };
@@ -26,6 +28,8 @@
 		1602298A2B5B991100D2B6EE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		1689D1712B5BEB8D00C970EF /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		1689D1762B5D42DE00C970EF /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		1689D1782B5D431C00C970EF /* NetworkClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientProtocol.swift; sourceTree = "<group>"; };
 		16D084E22B59952A00F3AC46 /* Joke Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Joke Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D084E52B59952A00F3AC46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16D084E72B59952A00F3AC46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,31 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		1689D1732B5D426000C970EF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1689D1752B5D42B700C970EF /* Implementations */,
+				1689D1742B5D427900C970EF /* Protocols */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1689D1742B5D427900C970EF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1689D1782B5D431C00C970EF /* NetworkClientProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1689D1752B5D42B700C970EF /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				1689D1762B5D42DE00C970EF /* NetworkClient.swift */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
 		16D084D92B59952A00F3AC46 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +114,7 @@
 		16D084E42B59952A00F3AC46 /* Joke Generator */ = {
 			isa = PBXGroup;
 			children = (
+				1689D1732B5D426000C970EF /* Services */,
 				16D084FD2B5B7F7F00F3AC46 /* Models */,
 				16D084F92B59B01700F3AC46 /* Helpers */,
 				1689D16E2B5BEB4700C970EF /* Presentation */,
@@ -213,6 +243,8 @@
 				1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */,
 				16D084E82B59952A00F3AC46 /* SceneDelegate.swift in Sources */,
 				1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */,
+				1689D1772B5D42DE00C970EF /* NetworkClient.swift in Sources */,
+				1689D1792B5D431C00C970EF /* NetworkClientProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
