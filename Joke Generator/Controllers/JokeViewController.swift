@@ -10,11 +10,10 @@ import UIKit
 class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     // MARK: Properties
     
-    private var jokes: JokeModelMock = JokeModelMock()
     private var alertPresenter: AlertPresenter?
-    private var joke: JokeModel!
-    private var jokeFactory: JokeFactoryProtocol?
+    private var jokeFactory: JokeFactoryProtocol!
     private var jokesLoader: JokesLoaderProtocol = JokesLoader(networkClient: NetworkClient())
+    private var currentJoke: JokeModel?
     
     // MARK: Outlets
     
@@ -31,47 +30,68 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         jokeFactory = JokeFactory(delegate: self, jokesLoader: jokesLoader)
         alertPresenter = AlertPresenter(delegate: self)
         
-        joke = jokes.getJoke()
+        jokeFactory.loadJoke()
         
-        //showPunchlineOrNextJokeButton.semanticContentAttribute = .forceRightToLeft
-        show(model: joke)
+        //show(model: currentJoke)
     }
     
     //MARK: JokeFactory delegate
     
+    func didReceiveNextJoke(joke: JokeModel?) {
+        guard let joke = joke else {
+            return
+        }
+        currentJoke = joke
+//        DispatchQueue.main.async { [weak self] in
+//            self?.show(model: self?.currentJoke)
+//        }
+        show(model: currentJoke)
+    }
+    
     func didLoadDataFromServer() {
-        <#code#>
+        jokeFactory.requestJoke()
     }
     
     func didFailToLoadData(with error: Error) {
-        <#code#>
+        showNetworkError(message: error.localizedDescription)
     }
     
     // MARK: Private functions
     
-    private func show(model joke: JokeModel) {
+    private func show(model joke: JokeModel?) {
+        guard let joke = joke else {
+            print("joke == nil")
+            return
+        }
         categoryLabel.text = "Category: \(joke.type)"
         setupLabel.text = joke.setup
     }
     
-    private func showPunchline(model joke: JokeModel) {
+    private func showPunchline(model joke: JokeModel?) {
+        guard let joke = joke else { return }
         var model = AlertModel(title: "Punchline", message: joke.punchline, buttonTitle: "Ok") { _ in
             
         }
         alertPresenter?.show(model: model)
     }
     
+    private func showNetworkError(message: String) {
+        let alertModel = AlertModel(title: "Ошибка загрузки", message: message, buttonTitle: "Попробовать еще раз") { [weak self] _ in
+            guard let self = self else { return }
+            jokeFactory.loadJoke()
+        }
+        alertPresenter?.show(model: alertModel)
+    }
+    
     private func doActionAndChangeText(button: UIButton) {
         if button.titleLabel?.text == "Show Punchline" {
             button.setTitle("Next joke  ", for: .normal)
-            //button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
             
-            showPunchline(model: joke)
+            showPunchline(model: currentJoke)
         } else {
-            joke = jokes.getJoke()
-            show(model: joke)
+            jokeFactory.loadJoke()
+            show(model: currentJoke)
             
-            //button.setImage(UIImage(), for: .normal)
             button.setTitle("Show Punchline", for: .normal)
             
         }

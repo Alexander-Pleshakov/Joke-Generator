@@ -14,7 +14,7 @@ struct NetworkClient: NetworkClientProtocol {
     }
     
     func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) {
-        var request = URLRequest(url: url)
+        let request = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

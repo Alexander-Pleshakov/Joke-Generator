@@ -8,6 +8,6 @@
 import Foundation
 
 protocol JokeFactoryProtocol {
-    var joke: JokeModel { get }
     func loadJoke()
+    func requestJoke()
 }

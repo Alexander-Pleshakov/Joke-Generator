@@ -10,4 +10,5 @@ import Foundation
 protocol JokeFactoryDelegateProtocol {
     func didLoadDataFromServer()
     func didFailToLoadData(with error: Error)
+    func didReceiveNextJoke(joke: JokeModel?)
 }
