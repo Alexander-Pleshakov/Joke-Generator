@@ -7,13 +7,14 @@
 
 import UIKit
 
-class JokeViewController: UIViewController {
-    
+class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     // MARK: Properties
     
     private var jokes: JokeModelMock = JokeModelMock()
     private var alertPresenter: AlertPresenter?
     private var joke: JokeModel!
+    private var jokeFactory: JokeFactoryProtocol?
+    private var jokesLoader: JokesLoaderProtocol = JokesLoader(networkClient: NetworkClient())
     
     // MARK: Outlets
     
@@ -26,11 +27,24 @@ class JokeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        jokesLoader = JokesLoader(networkClient: NetworkClient())
+        jokeFactory = JokeFactory(delegate: self, jokesLoader: jokesLoader)
         alertPresenter = AlertPresenter(delegate: self)
+        
         joke = jokes.getJoke()
         
         //showPunchlineOrNextJokeButton.semanticContentAttribute = .forceRightToLeft
         show(model: joke)
+    }
+    
+    //MARK: JokeFactory delegate
+    
+    func didLoadDataFromServer() {
+        <#code#>
+    }
+    
+    func didFailToLoadData(with error: Error) {
+        <#code#>
     }
     
     // MARK: Private functions
