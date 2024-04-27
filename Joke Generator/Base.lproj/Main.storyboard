@@ -29,17 +29,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ilq-qD-GzP" userLabel="Main Stack View">
                                 <rect key="frame" x="20" y="59" width="353" height="759"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXM-Sp-dKQ" userLabel="Category label">
-                                        <rect key="frame" x="133" y="0.0" width="87.333333333333314" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="aFj-VD-j1Q"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
-                                        <color key="textColor" name="JG White"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2G-pY-INn">
+                                        <rect key="frame" x="113.66666666666666" y="0.0" width="125.66666666666666" height="22"/>
+                                        <color key="tintColor" name="JG White"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Any category" image="chevron.down" catalog="system">
+                                            <color key="titleColor" name="JG White"/>
+                                        </state>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YDe-7P-x90" userLabel="Setup Stack View">
-                                        <rect key="frame" x="0.0" y="208" width="353" height="333"/>
+                                        <rect key="frame" x="0.0" y="180" width="353" height="361"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="POY-hS-jO6" userLabel="Top Stack View">
                                                 <rect key="frame" x="47" y="0.0" width="259" height="49"/>
@@ -72,13 +71,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccq-ey-BG0">
-                                                <rect key="frame" x="47" y="167" width="259" height="0.0"/>
+                                                <rect key="frame" x="47" y="181" width="259" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
                                                 <color key="textColor" name="JG TextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gtB-74-Ull" userLabel="Bottom Stack View">
-                                                <rect key="frame" x="47" y="285" width="259" height="48"/>
+                                                <rect key="frame" x="47" y="313" width="259" height="48"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDH-1Q-xgB" userLabel="Separator View">
                                                         <rect key="frame" x="0.0" y="0.0" width="259" height="3"/>
@@ -148,7 +147,7 @@
                                     <constraint firstAttribute="trailing" secondItem="bb5-3H-aw6" secondAttribute="trailing" constant="17" id="BZR-U7-BKu"/>
                                     <constraint firstAttribute="trailing" secondItem="YDe-7P-x90" secondAttribute="trailing" id="R6h-sQ-Sff"/>
                                     <constraint firstItem="bb5-3H-aw6" firstAttribute="leading" secondItem="Ilq-qD-GzP" secondAttribute="leading" constant="17" id="RQd-Bl-jMF"/>
-                                    <constraint firstItem="YDe-7P-x90" firstAttribute="top" secondItem="sXM-Sp-dKQ" secondAttribute="bottom" constant="158" id="pF8-qU-Omb"/>
+                                    <constraint firstItem="YDe-7P-x90" firstAttribute="top" secondItem="L2G-pY-INn" secondAttribute="top" constant="180" id="oA1-WF-A7Z"/>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="w3g-bF-i1s">
@@ -169,7 +168,6 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="w3g-bF-i1s" id="bZl-KO-yBE"/>
-                        <outlet property="categoryLabel" destination="sXM-Sp-dKQ" id="4U4-Nf-Ad4"/>
                         <outlet property="setupLabel" destination="ccq-ey-BG0" id="FI3-2M-Icz"/>
                         <outlet property="showPunchlineOrNextJokeButton" destination="bb5-3H-aw6" id="eW7-Ly-msd"/>
                     </connections>
@@ -180,6 +178,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <namedColor name="JG Background">
             <color red="0.3919999897480011" green="0.39599999785423279" blue="0.6470000147819519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
