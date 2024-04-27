@@ -36,6 +36,9 @@
                                         <state key="normal" title="Any category" image="chevron.down" catalog="system">
                                             <color key="titleColor" name="JG White"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonCategoryTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bkx-vN-qyg"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YDe-7P-x90" userLabel="Setup Stack View">
                                         <rect key="frame" x="0.0" y="180" width="353" height="361"/>
@@ -168,8 +171,10 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="w3g-bF-i1s" id="bZl-KO-yBE"/>
+                        <outlet property="categoryButton" destination="L2G-pY-INn" id="exC-BH-Cua"/>
                         <outlet property="setupLabel" destination="ccq-ey-BG0" id="FI3-2M-Icz"/>
                         <outlet property="showPunchlineOrNextJokeButton" destination="bb5-3H-aw6" id="eW7-Ly-msd"/>
+                        <outlet property="titleJokeLabel" destination="jD6-6g-1gv" id="QOr-uQ-EbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

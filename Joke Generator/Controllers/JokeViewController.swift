@@ -18,11 +18,11 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     // MARK: Outlets
     
+    @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var categoryLabel: UILabel!
     @IBOutlet private weak var showPunchlineOrNextJokeButton: UIButton!
     @IBOutlet private weak var setupLabel: UILabel!
-    
+    @IBOutlet weak var titleJokeLabel: UILabel!
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -63,7 +63,6 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     private func goToNextJoke() {
         activityIndicator.startAnimating()
-        categoryLabel.text = ""
         setupLabel.text = ""
     }
     
@@ -72,7 +71,6 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             print("joke == nil")
             return
         }
-        categoryLabel.text = "Category: \(joke.type)"
         setupLabel.text = joke.setup
     }
     
@@ -112,6 +110,8 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         doActionAndChangeText(button: sender)
     }
     
-
+    @IBAction func buttonCategoryTapped(_ sender: Any) {
+    }
+    
 }
 
