@@ -81,6 +81,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		1630D3B72BDD9D8900A59A82 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1630D3B32BDD94B500A59A82 /* DropDownCell.swift */,
+				1630D3B42BDD94B500A59A82 /* DropDownCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1689D16E2B5BEB4700C970EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,11 +150,10 @@
 			children = (
 				16D084E52B59952A00F3AC46 /* AppDelegate.swift */,
 				16D084E72B59952A00F3AC46 /* SceneDelegate.swift */,
+				16D084FE2B5B831400F3AC46 /* Controllers */,
 				1689D1732B5D426000C970EF /* Services */,
 				16D084FD2B5B7F7F00F3AC46 /* Models */,
 				16D084F92B59B01700F3AC46 /* Helpers */,
-				1689D16E2B5BEB4700C970EF /* Presentation */,
-				16D084FE2B5B831400F3AC46 /* Controllers */,
 				16D084FC2B5B7F2D00F3AC46 /* Resources */,
 				16D084EB2B59952A00F3AC46 /* Main.storyboard */,
 			);
@@ -155,6 +163,7 @@
 		16D084F92B59B01700F3AC46 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1689D16E2B5BEB4700C970EF /* Presentation */,
 				16D084FA2B59B03700F3AC46 /* UIColor + Extensions.swift */,
 			);
 			path = Helpers;
@@ -185,8 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				16D084E92B59952A00F3AC46 /* JokeViewController.swift */,
-				1630D3B32BDD94B500A59A82 /* DropDownCell.swift */,
-				1630D3B42BDD94B500A59A82 /* DropDownCell.xib */,
+				1630D3B72BDD9D8900A59A82 /* Views */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
