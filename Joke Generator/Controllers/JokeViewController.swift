@@ -133,6 +133,14 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             // jokesLoader?.updateCategories()
         }
         
+        menu.cancelAction = { [weak self] in
+            self?.categoryButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        }
+
+        menu.willShowAction = { [weak self] in
+            self?.categoryButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+        }
+        
     
     }
     
