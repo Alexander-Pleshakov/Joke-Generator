@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -95,12 +94,13 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MR4-oF-c6w">
                                                         <rect key="frame" x="0.0" y="3" width="259" height="45"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="JG White"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="TGT-Rj-Tnp"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <color key="backgroundColor" name="JG White"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="GDH-1Q-xgB" secondAttribute="trailing" id="NOs-Rb-x4I"/>
                                                     <constraint firstItem="GDH-1Q-xgB" firstAttribute="leading" secondItem="gtB-74-Ull" secondAttribute="leading" id="eXr-lr-cwF"/>
@@ -151,8 +151,8 @@
                                     <constraint firstItem="YDe-7P-x90" firstAttribute="top" secondItem="sXM-Sp-dKQ" secondAttribute="bottom" constant="158" id="pF8-qU-Omb"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="w3g-bF-i1s">
-                                <rect key="frame" x="178" y="420" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="w3g-bF-i1s">
+                                <rect key="frame" x="186.66666666666666" y="428.66666666666669" width="20" height="20"/>
                                 <color key="color" name="JG DarkPurple"/>
                             </activityIndicatorView>
                         </subviews>
@@ -195,8 +195,5 @@
         <namedColor name="JG Yellow">
             <color red="0.95300000905990601" green="0.91399997472763062" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

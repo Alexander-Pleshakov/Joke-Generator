@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     // MARK: Properties
@@ -17,7 +18,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     // MARK: Outlets
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var categoryLabel: UILabel!
     @IBOutlet private weak var showPunchlineOrNextJokeButton: UIButton!
     @IBOutlet private weak var setupLabel: UILabel!
