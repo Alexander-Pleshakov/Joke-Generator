@@ -18,6 +18,14 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     // MARK: Outlets
     
+    let menu: DropDown = {
+        let menu = DropDown()
+        menu.dataSource = ["Item1", "Item2", "Item3"]
+        menu.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
+        
+        return menu
+    }()
+    
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var showPunchlineOrNextJokeButton: UIButton!
@@ -27,6 +35,8 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dropDownMenuConfigure()
         
         activityIndicator.hidesWhenStopped = true
         
@@ -104,6 +114,28 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         }
     }
     
+    private func dropDownMenuConfigure() {
+        menu.anchorView = categoryButton
+        menu.direction = .bottom
+        menu.bottomOffset = CGPoint(x: 0, y:(menu.anchorView?.plainView.bounds.height)!)
+        DropDown.appearance().cornerRadius = 10
+        
+        menu.customCellConfiguration = { index, title, cell in
+            guard let cell = cell as? CategoryCell else {
+                return
+            }
+            cell.checkImageView.image = UIImage(systemName: "checkmark")
+        }
+        
+        menu.selectionAction = { [weak self] (index, title) in
+            guard let self = self else { return }
+            print("Button with index \(index) and title - \(title) was tapped")
+            // jokesLoader?.updateCategories()
+        }
+        
+    
+    }
+    
     // MARK: Actions
     
     @IBAction func buttonShowPunchlineOrNextJokeDidTap(_ sender: UIButton) {
@@ -111,6 +143,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     }
     
     @IBAction func buttonCategoryTapped(_ sender: Any) {
+        menu.show()
     }
     
 }
