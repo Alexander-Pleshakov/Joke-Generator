@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import DropDown
 
-class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
+class JokeViewController: UIViewController {
     // MARK: Properties
     
     private var alertPresenter: AlertPresenter?
@@ -18,15 +17,20 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     // MARK: Outlets
     
+    private var menu: CategoriesMenu!
+    
+    @IBOutlet private weak var categoryButton: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var categoryLabel: UILabel!
     @IBOutlet private weak var showPunchlineOrNextJokeButton: UIButton!
     @IBOutlet private weak var setupLabel: UILabel!
+    @IBOutlet private weak var titleJokeLabel: UILabel!
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menu = CategoriesMenu(delegate: self)
         
         activityIndicator.hidesWhenStopped = true
         
@@ -36,34 +40,12 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         
         activityIndicator.startAnimating()
         jokeFactory.loadJoke()
-        
-        //show(model: currentJoke)
-    }
-    
-    //MARK: JokeFactory delegate
-    
-    func didReceiveNextJoke(joke: JokeModel?) {
-        guard let joke = joke else {
-            return
-        }
-        currentJoke = joke
-        show(model: currentJoke)
-        activityIndicator.stopAnimating()
-    }
-    
-    func didLoadDataFromServer() {
-        jokeFactory.requestJoke()
-    }
-    
-    func didFailToLoadData(with error: Error) {
-        showNetworkError(message: error.localizedDescription)
     }
     
     // MARK: Private functions
     
     private func goToNextJoke() {
         activityIndicator.startAnimating()
-        categoryLabel.text = ""
         setupLabel.text = ""
     }
     
@@ -72,7 +54,6 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             print("joke == nil")
             return
         }
-        categoryLabel.text = "Category: \(joke.type)"
         setupLabel.text = joke.setup
     }
     
@@ -105,13 +86,65 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             
         }
     }
-    
+
     // MARK: Actions
     
     @IBAction func buttonShowPunchlineOrNextJokeDidTap(_ sender: UIButton) {
         doActionAndChangeText(button: sender)
     }
     
+    @IBAction func buttonCategoryTapped(_ sender: Any) {
+        menu.show()
+    }
+    
+}
 
+//MARK: JokeFactoryDelegateProtocol
+
+extension JokeViewController: JokeFactoryDelegateProtocol {
+    func didReceiveNextJoke(joke: JokeModel?) {
+        guard let joke = joke else {
+            return
+        }
+        currentJoke = joke
+        show(model: currentJoke)
+        activityIndicator.stopAnimating()
+    }
+    
+    func didLoadDataFromServer() {
+        jokeFactory.requestJoke()
+    }
+    
+    func didFailToLoadData(with error: Error) {
+        showNetworkError(message: error.localizedDescription)
+    }
+}
+
+// MARK: CategoriesMenuDelegate
+
+extension JokeViewController: CategoriesMenuDelegate {
+    func getAnchorView() -> UIView {
+        return categoryButton
+    }
+    
+    func setDownImageForButton() {
+        categoryButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+    }
+    
+    func setUpImageForButton() {
+        categoryButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+    }
+    
+    func updateCategoryButton(title: String, count: Int) {
+        if count == 1 {
+            categoryButton.setTitle(title, for: .normal)
+        } else {
+            categoryButton.setTitle("Many categories", for: .normal)
+        }
+        
+        if count == 0 {
+            categoryButton.setTitle("No category", for: .normal)
+        }
+    }
 }
 

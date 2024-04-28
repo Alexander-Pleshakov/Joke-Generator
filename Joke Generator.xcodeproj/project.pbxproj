@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1602298B2B5B991100D2B6EE /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 160229892B5B991100D2B6EE /* Roboto-Medium.ttf */; };
 		1602298C2B5B991100D2B6EE /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1602298A2B5B991100D2B6EE /* Roboto-Bold.ttf */; };
+		1630D3B52BDD94B500A59A82 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1630D3B42BDD94B500A59A82 /* DropDownCell.xib */; };
+		1630D3B62BDD94B500A59A82 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630D3B32BDD94B500A59A82 /* DropDownCell.swift */; };
+		1630D3B92BDE6E2400A59A82 /* CategoriesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */; };
+		1630D3BB2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630D3BA2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift */; };
 		1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */; };
 		1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1712B5BEB8D00C970EF /* AlertModel.swift */; };
 		1689D1772B5D42DE00C970EF /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1762B5D42DE00C970EF /* NetworkClient.swift */; };
@@ -33,6 +37,10 @@
 		01C73FA4267E3FC728DA89EA /* Pods-Joke Generator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Joke Generator.debug.xcconfig"; path = "Target Support Files/Pods-Joke Generator/Pods-Joke Generator.debug.xcconfig"; sourceTree = "<group>"; };
 		160229892B5B991100D2B6EE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		1602298A2B5B991100D2B6EE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		1630D3B32BDD94B500A59A82 /* DropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
+		1630D3B42BDD94B500A59A82 /* DropDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
+		1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMenu.swift; sourceTree = "<group>"; };
+		1630D3BA2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMenuDelegate.swift; sourceTree = "<group>"; };
 		1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		1689D1712B5BEB8D00C970EF /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		1689D1762B5D42DE00C970EF /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -75,6 +83,17 @@
 				160229892B5B991100D2B6EE /* Roboto-Medium.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1630D3B72BDD9D8900A59A82 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1630D3B32BDD94B500A59A82 /* DropDownCell.swift */,
+				1630D3B42BDD94B500A59A82 /* DropDownCell.xib */,
+				1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */,
+				1630D3BA2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		1689D16E2B5BEB4700C970EF /* Presentation */ = {
@@ -137,11 +156,10 @@
 			children = (
 				16D084E52B59952A00F3AC46 /* AppDelegate.swift */,
 				16D084E72B59952A00F3AC46 /* SceneDelegate.swift */,
+				16D084FE2B5B831400F3AC46 /* Controllers */,
 				1689D1732B5D426000C970EF /* Services */,
 				16D084FD2B5B7F7F00F3AC46 /* Models */,
 				16D084F92B59B01700F3AC46 /* Helpers */,
-				1689D16E2B5BEB4700C970EF /* Presentation */,
-				16D084FE2B5B831400F3AC46 /* Controllers */,
 				16D084FC2B5B7F2D00F3AC46 /* Resources */,
 				16D084EB2B59952A00F3AC46 /* Main.storyboard */,
 			);
@@ -151,6 +169,7 @@
 		16D084F92B59B01700F3AC46 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1689D16E2B5BEB4700C970EF /* Presentation */,
 				16D084FA2B59B03700F3AC46 /* UIColor + Extensions.swift */,
 			);
 			path = Helpers;
@@ -181,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				16D084E92B59952A00F3AC46 /* JokeViewController.swift */,
+				1630D3B72BDD9D8900A59A82 /* Views */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1602298B2B5B991100D2B6EE /* Roboto-Medium.ttf in Resources */,
+				1630D3B52BDD94B500A59A82 /* DropDownCell.xib in Resources */,
 				16D084F22B59952C00F3AC46 /* LaunchScreen.storyboard in Resources */,
 				1602298C2B5B991100D2B6EE /* Roboto-Bold.ttf in Resources */,
 				16D085012B5B874B00F3AC46 /* Assets.xcassets in Resources */,
@@ -323,16 +344,19 @@
 				1689D1812B5D53D500C970EF /* JokeFactory.swift in Sources */,
 				16D084FB2B59B03700F3AC46 /* UIColor + Extensions.swift in Sources */,
 				16D085002B5B868500F3AC46 /* JokeModel.swift in Sources */,
+				1630D3BB2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift in Sources */,
 				1689D17D2B5D50E900C970EF /* JokesLoader.swift in Sources */,
 				16D084E62B59952A00F3AC46 /* AppDelegate.swift in Sources */,
 				1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */,
 				16D084E82B59952A00F3AC46 /* SceneDelegate.swift in Sources */,
 				1689D17F2B5D53B000C970EF /* JokeFactoryProtocol.swift in Sources */,
 				1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */,
+				1630D3B92BDE6E2400A59A82 /* CategoriesMenu.swift in Sources */,
 				1689D1772B5D42DE00C970EF /* NetworkClient.swift in Sources */,
 				1689D1792B5D431C00C970EF /* NetworkClientProtocol.swift in Sources */,
 				1689D1832B5D543B00C970EF /* JokeFactoryDelegateProtocol.swift in Sources */,
 				1689D17B2B5D509900C970EF /* JokesLoaderProtocol.swift in Sources */,
+				1630D3B62BDD94B500A59A82 /* DropDownCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
