@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
+class JokeViewController: UIViewController {
     // MARK: Properties
     
     private var alertPresenter: AlertPresenter?
@@ -24,6 +24,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     @IBOutlet private weak var showPunchlineOrNextJokeButton: UIButton!
     @IBOutlet private weak var setupLabel: UILabel!
     @IBOutlet private weak var titleJokeLabel: UILabel!
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -39,25 +40,6 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         
         activityIndicator.startAnimating()
         jokeFactory.loadJoke()
-    }
-    
-    //MARK: JokeFactory delegate
-    
-    func didReceiveNextJoke(joke: JokeModel?) {
-        guard let joke = joke else {
-            return
-        }
-        currentJoke = joke
-        show(model: currentJoke)
-        activityIndicator.stopAnimating()
-    }
-    
-    func didLoadDataFromServer() {
-        jokeFactory.requestJoke()
-    }
-    
-    func didFailToLoadData(with error: Error) {
-        showNetworkError(message: error.localizedDescription)
     }
     
     // MARK: Private functions
@@ -115,6 +97,27 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         menu.show()
     }
     
+}
+
+//MARK: JokeFactoryDelegateProtocol
+
+extension JokeViewController: JokeFactoryDelegateProtocol {
+    func didReceiveNextJoke(joke: JokeModel?) {
+        guard let joke = joke else {
+            return
+        }
+        currentJoke = joke
+        show(model: currentJoke)
+        activityIndicator.stopAnimating()
+    }
+    
+    func didLoadDataFromServer() {
+        jokeFactory.requestJoke()
+    }
+    
+    func didFailToLoadData(with error: Error) {
+        showNetworkError(message: error.localizedDescription)
+    }
 }
 
 // MARK: CategoriesMenuDelegate
