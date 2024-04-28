@@ -81,7 +81,7 @@ final class CategoriesMenu {
                 selectAny()
             } else {
                 self.selectedCategories = Set(titles)
-                delegate.updateCategoryButton(title: "Many categories", count: selectedCategories.count)
+                delegate.updateCategoryButton(title: selectedCategories.first ?? "", count: selectedCategories.count)
                 addCategory()
             }
         }
