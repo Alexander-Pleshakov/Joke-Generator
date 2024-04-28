@@ -19,11 +19,11 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     private var menu: CategoriesMenu!
     
-    @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet private weak var categoryButton: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var showPunchlineOrNextJokeButton: UIButton!
     @IBOutlet private weak var setupLabel: UILabel!
-    @IBOutlet weak var titleJokeLabel: UILabel!
+    @IBOutlet private weak var titleJokeLabel: UILabel!
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -117,7 +117,9 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
 }
 
-extension JokeViewController {
+// MARK: CategoriesMenuDelegate
+
+extension JokeViewController: CategoriesMenuDelegate {
     func getAnchorView() -> UIView {
         return categoryButton
     }

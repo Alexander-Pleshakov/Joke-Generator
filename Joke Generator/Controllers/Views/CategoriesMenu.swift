@@ -10,9 +10,9 @@ import DropDown
 
 final class CategoriesMenu {
     
-    weak var delegate: JokeViewController!
+    weak var delegate: CategoriesMenuDelegate!
     
-    init(delegate: JokeViewController) {
+    init(delegate: CategoriesMenuDelegate) {
         self.delegate = delegate
         dropDownMenuConfigure()
     }

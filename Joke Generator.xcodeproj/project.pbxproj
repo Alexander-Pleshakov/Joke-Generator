@@ -12,6 +12,7 @@
 		1630D3B52BDD94B500A59A82 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1630D3B42BDD94B500A59A82 /* DropDownCell.xib */; };
 		1630D3B62BDD94B500A59A82 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630D3B32BDD94B500A59A82 /* DropDownCell.swift */; };
 		1630D3B92BDE6E2400A59A82 /* CategoriesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */; };
+		1630D3BB2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630D3BA2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift */; };
 		1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */; };
 		1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1712B5BEB8D00C970EF /* AlertModel.swift */; };
 		1689D1772B5D42DE00C970EF /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1762B5D42DE00C970EF /* NetworkClient.swift */; };
@@ -39,6 +40,7 @@
 		1630D3B32BDD94B500A59A82 /* DropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
 		1630D3B42BDD94B500A59A82 /* DropDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
 		1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMenu.swift; sourceTree = "<group>"; };
+		1630D3BA2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMenuDelegate.swift; sourceTree = "<group>"; };
 		1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		1689D1712B5BEB8D00C970EF /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		1689D1762B5D42DE00C970EF /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				1630D3B32BDD94B500A59A82 /* DropDownCell.swift */,
 				1630D3B42BDD94B500A59A82 /* DropDownCell.xib */,
 				1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */,
+				1630D3BA2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				1689D1812B5D53D500C970EF /* JokeFactory.swift in Sources */,
 				16D084FB2B59B03700F3AC46 /* UIColor + Extensions.swift in Sources */,
 				16D085002B5B868500F3AC46 /* JokeModel.swift in Sources */,
+				1630D3BB2BDE76CA00A59A82 /* CategoriesMenuDelegate.swift in Sources */,
 				1689D17D2B5D50E900C970EF /* JokesLoader.swift in Sources */,
 				16D084E62B59952A00F3AC46 /* AppDelegate.swift in Sources */,
 				1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */,
