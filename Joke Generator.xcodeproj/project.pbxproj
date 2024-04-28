@@ -11,6 +11,7 @@
 		1602298C2B5B991100D2B6EE /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1602298A2B5B991100D2B6EE /* Roboto-Bold.ttf */; };
 		1630D3B52BDD94B500A59A82 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1630D3B42BDD94B500A59A82 /* DropDownCell.xib */; };
 		1630D3B62BDD94B500A59A82 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630D3B32BDD94B500A59A82 /* DropDownCell.swift */; };
+		1630D3B92BDE6E2400A59A82 /* CategoriesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */; };
 		1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */; };
 		1689D1722B5BEB8D00C970EF /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1712B5BEB8D00C970EF /* AlertModel.swift */; };
 		1689D1772B5D42DE00C970EF /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689D1762B5D42DE00C970EF /* NetworkClient.swift */; };
@@ -37,6 +38,7 @@
 		1602298A2B5B991100D2B6EE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		1630D3B32BDD94B500A59A82 /* DropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
 		1630D3B42BDD94B500A59A82 /* DropDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
+		1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMenu.swift; sourceTree = "<group>"; };
 		1689D16F2B5BEB7D00C970EF /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		1689D1712B5BEB8D00C970EF /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		1689D1762B5D42DE00C970EF /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				1630D3B32BDD94B500A59A82 /* DropDownCell.swift */,
 				1630D3B42BDD94B500A59A82 /* DropDownCell.xib */,
+				1630D3B82BDE6E2400A59A82 /* CategoriesMenu.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				16D084E82B59952A00F3AC46 /* SceneDelegate.swift in Sources */,
 				1689D17F2B5D53B000C970EF /* JokeFactoryProtocol.swift in Sources */,
 				1689D1702B5BEB7D00C970EF /* AlertPresenter.swift in Sources */,
+				1630D3B92BDE6E2400A59A82 /* CategoriesMenu.swift in Sources */,
 				1689D1772B5D42DE00C970EF /* NetworkClient.swift in Sources */,
 				1689D1792B5D431C00C970EF /* NetworkClientProtocol.swift in Sources */,
 				1689D1832B5D543B00C970EF /* JokeFactoryDelegateProtocol.swift in Sources */,

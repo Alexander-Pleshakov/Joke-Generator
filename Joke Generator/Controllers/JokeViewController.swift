@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import DropDown
 
 class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     // MARK: Properties
@@ -16,18 +15,9 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     private var jokesLoader: JokesLoaderProtocol = JokesLoader(networkClient: NetworkClient())
     private var currentJoke: JokeModel?
     
-    var selectedCategories: Set<String> = ["Any category"]
-    let allCategoriesSet: Set<String> = ["Any category", "Programming", "Misc", "Dark", "Pun", "Spooky", "Christmas"]
-    let allCategories = ["Any category", "Programming", "Misc", "Dark", "Pun", "Spooky", "Christmas"]
-    
     // MARK: Outlets
     
-    let menu: DropDown = {
-        let menu = DropDown()
-        menu.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
-        
-        return menu
-    }()
+    var menu: CategoriesMenu!
     
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
@@ -39,7 +29,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dropDownMenuConfigure()
+        menu = CategoriesMenu(delegate: self)
         
         activityIndicator.hidesWhenStopped = true
         
@@ -49,8 +39,6 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         
         activityIndicator.startAnimating()
         jokeFactory.loadJoke()
-        
-        //show(model: currentJoke)
     }
     
     //MARK: JokeFactory delegate
@@ -116,109 +104,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             
         }
     }
-    
-    private func dropDownMenuConfigure() {
-        menu.dataSource = allCategories
-        
-        let color = UIColor(named: "JG White") ?? .white
-        
-        DropDown.appearance().selectionBackgroundColor = color
-        DropDown.appearance().backgroundColor = color
-        
-        menu.anchorView = categoryButton
-        menu.direction = .bottom
-        menu.bottomOffset = CGPoint(x: 0, y:(menu.anchorView?.plainView.bounds.height)!)
-        DropDown.appearance().cornerRadius = 10
-        
-        menu.cancelAction = { [weak self] in
-            self?.categoryButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        }
 
-        menu.willShowAction = { [weak self] in
-            guard let self = self else { return }
-            self.categoryButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
-            let array = Array(selectedCategories)
-            
-            addCategory()
-        }
-        
-        menu.multiSelectionAction = { [weak self] (index, titles) in
-            guard let self = self else { return }
-            
-            if selectedCategories.contains("Any category") {
-                self.selectedCategories = Set(titles)
-                self.selectedCategories.remove("Any category")
-                let i = allCategories.firstIndex(of: selectedCategories.first!)!
-                menu.clearSelection()
-                
-                menu.selectRow(at: i)
-               
-                addCategory()
-                
-                updateCategoryButton(title: allCategories[i])
-                
-                return
-            }
-            
-            self.selectedCategories = Set(titles)
-            
-            if selectedCategories.contains("Any category") {
-                menu.clearSelection()
-                menu.selectRow(0)
-                selectAny()
-            } else {
-                self.selectedCategories = Set(titles)
-                updateCategoryButton(title: "Many categories")
-                addCategory()
-            }
-        }
-    }
-    
-    func selectAny() {
-        menu.customCellConfiguration = { [weak self] index, title, cell in
-            guard let cell = cell as? CategoryCell,
-                  let self = self
-            else { return }
-            
-            if selectedCategories.contains("Any category"){
-                self.selectedCategories = ["Any category"]
-                updateCategoryButton(title: "Any category")
-            }
-            
-            if selectedCategories.contains(title) {
-                cell.checkImageView.image = UIImage(systemName: "checkmark")
-            } else {
-                cell.checkImageView.image = UIImage()
-            }
-        }
-    }
-    
-    func addCategory() {
-        menu.customCellConfiguration = { [weak self] index, title, cell in
-            guard let cell = cell as? CategoryCell,
-                  let self = self
-            else { return }
-        
-            if selectedCategories.contains(title) {
-                cell.checkImageView.image = UIImage(systemName: "checkmark")
-            } else {
-                cell.checkImageView.image = UIImage()
-            }
-        }
-    }
-    
-    private func updateCategoryButton(title: String) {
-        if self.selectedCategories.count == 1 {
-            categoryButton.setTitle(title, for: .normal)
-        } else {
-            categoryButton.setTitle("Many categories", for: .normal)
-        }
-        
-        if self.selectedCategories.count == 0 {
-            categoryButton.setTitle("No category", for: .normal)
-        }
-    }
-    
     // MARK: Actions
     
     @IBAction func buttonShowPunchlineOrNextJokeDidTap(_ sender: UIButton) {
@@ -229,5 +115,31 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         menu.show()
     }
     
+}
+
+extension JokeViewController {
+    func getAnchorView() -> UIView {
+        return categoryButton
+    }
+    
+    func setDownImageForButton() {
+        categoryButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+    }
+    
+    func setUpImageForButton() {
+        categoryButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+    }
+    
+    func updateCategoryButton(title: String, count: Int) {
+        if count == 1 {
+            categoryButton.setTitle(title, for: .normal)
+        } else {
+            categoryButton.setTitle("Many categories", for: .normal)
+        }
+        
+        if count == 0 {
+            categoryButton.setTitle("No category", for: .normal)
+        }
+    }
 }
 
