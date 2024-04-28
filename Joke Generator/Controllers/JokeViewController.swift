@@ -192,12 +192,12 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             
             if str == title {
                 self.selectedCategories.remove(title)
-                updateCategoryButton(title: title)
-                return
+                self.updateCategoryButton(title: title)
             }
             
             if selectedCategories.contains(title) {
                 cell.checkImageView.image = UIImage(systemName: "checkmark")
+                self.updateCategoryButton(title: title)
             } else {
                 cell.checkImageView.image = UIImage()
             }
