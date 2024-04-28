@@ -120,24 +120,15 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     private func dropDownMenuConfigure() {
         menu.dataSource = allCategories
         
+        let color = UIColor(named: "JG White") ?? .white
+        
+        DropDown.appearance().selectionBackgroundColor = color
+        DropDown.appearance().backgroundColor = color
+        
         menu.anchorView = categoryButton
         menu.direction = .bottom
         menu.bottomOffset = CGPoint(x: 0, y:(menu.anchorView?.plainView.bounds.height)!)
         DropDown.appearance().cornerRadius = 10
-        
-        menu.selectionAction = { [weak self] (index, title) in
-            guard let self = self else { return }
-            
-            if self.selectedCategories.contains(title) {
-                deleteImageFromMenu(for: title)
-            } else {
-                if title == "Any category" {
-                    setMenuImagesForAnyCategory()
-                    return
-                }
-                setImageForMenu(for: title)
-            }
-        }
         
         menu.cancelAction = { [weak self] in
             self?.categoryButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
@@ -147,8 +138,71 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
             guard let self = self else { return }
             self.categoryButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
             let array = Array(selectedCategories)
-            for category in array{
-                setImageForMenu(for: category)
+            
+            addCategory()
+        }
+        
+        menu.multiSelectionAction = { [weak self] (index, titles) in
+            guard let self = self else { return }
+            
+            if selectedCategories.contains("Any category") {
+                self.selectedCategories = Set(titles)
+                self.selectedCategories.remove("Any category")
+                let i = allCategories.firstIndex(of: selectedCategories.first!)!
+                menu.clearSelection()
+                
+                menu.selectRow(at: i)
+               
+                addCategory()
+                
+                updateCategoryButton(title: allCategories[i])
+                
+                return
+            }
+            
+            self.selectedCategories = Set(titles)
+            
+            if selectedCategories.contains("Any category") {
+                menu.clearSelection()
+                menu.selectRow(0)
+                selectAny()
+            } else {
+                self.selectedCategories = Set(titles)
+                updateCategoryButton(title: "Many categories")
+                addCategory()
+            }
+        }
+    }
+    
+    func selectAny() {
+        menu.customCellConfiguration = { [weak self] index, title, cell in
+            guard let cell = cell as? CategoryCell,
+                  let self = self
+            else { return }
+            
+            if selectedCategories.contains("Any category"){
+                self.selectedCategories = ["Any category"]
+                updateCategoryButton(title: "Any category")
+            }
+            
+            if selectedCategories.contains(title) {
+                cell.checkImageView.image = UIImage(systemName: "checkmark")
+            } else {
+                cell.checkImageView.image = UIImage()
+            }
+        }
+    }
+    
+    func addCategory() {
+        menu.customCellConfiguration = { [weak self] index, title, cell in
+            guard let cell = cell as? CategoryCell,
+                  let self = self
+            else { return }
+        
+            if selectedCategories.contains(title) {
+                cell.checkImageView.image = UIImage(systemName: "checkmark")
+            } else {
+                cell.checkImageView.image = UIImage()
             }
         }
     }
@@ -162,68 +216,6 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
         
         if self.selectedCategories.count == 0 {
             categoryButton.setTitle("No category", for: .normal)
-        }
-    }
-    
-    private func setMenuImagesForAnyCategory() {
-        menu.customCellConfiguration = { [weak self] index, title, cell in
-            guard let cell = cell as? CategoryCell,
-                  let self = self
-            else { return }
-            
-            if title == "Any category" {
-                self.selectedCategories = ["Any category"]
-                updateCategoryButton(title: title)
-            }
-            
-            if selectedCategories.contains(title) {
-                cell.checkImageView.image = UIImage(systemName: "checkmark")
-            } else {
-                cell.checkImageView.image = UIImage()
-            }
-        }
-    }
-    
-    private func deleteImageFromMenu(for str: String) {
-        menu.customCellConfiguration = { [weak self] index, title, cell in
-            guard let cell = cell as? CategoryCell,
-                  let self = self
-            else { return }
-            
-            if str == title {
-                self.selectedCategories.remove(title)
-                self.updateCategoryButton(title: title)
-            }
-            
-            if selectedCategories.contains(title) {
-                cell.checkImageView.image = UIImage(systemName: "checkmark")
-                self.updateCategoryButton(title: title)
-            } else {
-                cell.checkImageView.image = UIImage()
-            }
-        }
-    }
-    
-    private func setImageForMenu(for str: String) {
-        menu.customCellConfiguration = { [weak self] index, title, cell in
-            guard let cell = cell as? CategoryCell,
-                  let self = self
-            else { return }
-            
-            if str == title {
-                self.selectedCategories.insert(title)
-                updateCategoryButton(title: title)
-            }
-            
-            if self.selectedCategories.contains("Any category") && self.selectedCategories.count != 1 {
-                self.selectedCategories.remove("Any category")
-            }
-            
-            if selectedCategories.contains(title) {
-                cell.checkImageView.image = UIImage(systemName: "checkmark")
-            } else {
-                cell.checkImageView.image = UIImage()
-            }
         }
     }
     
