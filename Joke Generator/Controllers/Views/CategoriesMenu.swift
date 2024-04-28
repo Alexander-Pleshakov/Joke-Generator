@@ -17,15 +17,15 @@ final class CategoriesMenu {
         dropDownMenuConfigure()
     }
     
-    let menu: DropDown = {
+    private let menu: DropDown = {
         let menu = DropDown()
         menu.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
         
         return menu
     }()
     
-    var selectedCategories: Set<String> = ["Any category"]
-    let allCategories = ["Any category", "Programming", "Misc", "Dark", "Pun", "Spooky", "Christmas"]
+    private var selectedCategories: Set<String> = ["Any category"]
+    private let allCategories = ["Any category", "Programming", "Misc", "Dark", "Pun", "Spooky", "Christmas"]
     
     func show() {
         menu.show()
@@ -87,7 +87,7 @@ final class CategoriesMenu {
         }
     }
     
-    func selectAny() {
+    private func selectAny() {
         menu.customCellConfiguration = { [weak self] index, title, cell in
             guard let cell = cell as? CategoryCell,
                   let self = self
@@ -106,7 +106,7 @@ final class CategoriesMenu {
         }
     }
     
-    func addCategory() {
+    private func addCategory() {
         menu.customCellConfiguration = { [weak self] index, title, cell in
             guard let cell = cell as? CategoryCell,
                   let self = self

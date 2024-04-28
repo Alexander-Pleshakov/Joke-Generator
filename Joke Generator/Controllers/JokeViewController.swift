@@ -17,7 +17,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegateProtocol {
     
     // MARK: Outlets
     
-    var menu: CategoriesMenu!
+    private var menu: CategoriesMenu!
     
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
