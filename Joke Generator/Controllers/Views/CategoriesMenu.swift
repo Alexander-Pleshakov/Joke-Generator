@@ -60,16 +60,17 @@ final class CategoriesMenu {
             
             if selectedCategories.contains("Any category") {
                 self.selectedCategories = Set(titles)
-                self.selectedCategories.remove("Any category")
-                let i = allCategories.firstIndex(of: selectedCategories.first!)!
-                menu.clearSelection()
-                
-                menu.selectRow(at: i)
-               
-                addCategory()
-                
-                delegate.updateCategoryButton(title: allCategories[i], count: selectedCategories.count)
-                
+                if selectedCategories.count > 1 {
+                    self.selectedCategories.remove("Any category")
+                    let i = allCategories.firstIndex(of: selectedCategories.first!)!
+                    
+                    menu.clearSelection()
+                    menu.selectRow(at: i)
+                   
+                    addCategory()
+                    
+                    delegate.updateCategoryButton(title: allCategories[i], count: selectedCategories.count)
+                }
                 return
             }
             
