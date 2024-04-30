@@ -73,6 +73,13 @@ class JokeViewController: UIViewController {
     }
     
     private func doActionAndChangeText(button: UIButton) {
+        guard !CategoriesMenu.categories.isEmpty else {
+            let alertModel = AlertModel(title: "Не выбрана категория",
+                                        message: "Пожалуйста, выберите категорию шутки в меню сверху",
+                                        buttonTitle: "Ok") { _ in }
+            alertPresenter?.show(model: alertModel)
+            return
+        }
         if button.titleLabel?.text == "Show Punchline" {
             button.setTitle("Next joke  ", for: .normal)
             
@@ -82,7 +89,6 @@ class JokeViewController: UIViewController {
             jokeFactory.loadJoke()
             
             button.setTitle("Show Punchline", for: .normal)
-            
         }
     }
 
