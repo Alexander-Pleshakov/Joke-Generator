@@ -66,7 +66,7 @@ final class CategoriesMenu {
             
             if selectedCategories.contains("Any category") {
                 self.selectedCategories = Set(titles)
-                if selectedCategories.count > 1 {
+                if titles.count > 1 || (!self.selectedCategories.contains("Any category") && titles.count == 1) {
                     self.selectedCategories.remove("Any category")
                     let i = allCategories.firstIndex(of: selectedCategories.first!)!
                     
