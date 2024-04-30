@@ -46,6 +46,7 @@ class JokeViewController: UIViewController {
     
     private func goToNextJoke() {
         activityIndicator.startAnimating()
+        titleJokeLabel.text = "Setup"
         setupLabel.text = ""
     }
     
@@ -59,10 +60,8 @@ class JokeViewController: UIViewController {
     
     private func showPunchline(model joke: JokeModel?) {
         guard let joke = joke else { return }
-        let model = AlertModel(title: "Punchline", message: joke.delivery, buttonTitle: "Ok") { _ in
-            
-        }
-        alertPresenter?.show(model: model)
+        titleJokeLabel.text = "Punchline"
+        setupLabel.text = joke.delivery
     }
     
     private func showNetworkError(message: String) {
