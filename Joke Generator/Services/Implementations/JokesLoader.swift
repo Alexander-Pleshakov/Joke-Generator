@@ -45,12 +45,10 @@ struct JokesLoader: JokesLoaderProtocol {
     
     func loadJoke(handler: @escaping (Result<JokeModel, Error>) -> Void) {
         let url = makeJokeURL()
-        print(url)
         networkClient.fetch(url: url) { result in
             switch result {
             case .success(let data):
                 do {
-                    print(String(decoding: data, as: UTF8.self))
                     let joke = try JSONDecoder().decode(JokeModel.self, from: data)
                     handler(.success(joke))
                 }
