@@ -59,7 +59,7 @@ class JokeViewController: UIViewController {
     
     private func showPunchline(model joke: JokeModel?) {
         guard let joke = joke else { return }
-        let model = AlertModel(title: "Punchline", message: joke.punchline, buttonTitle: "Ok") { _ in
+        let model = AlertModel(title: "Punchline", message: joke.delivery, buttonTitle: "Ok") { _ in
             
         }
         alertPresenter?.show(model: model)
