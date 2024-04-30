@@ -24,7 +24,13 @@ final class CategoriesMenu {
         return menu
     }()
     
-    private var selectedCategories: Set<String> = ["Any category"]
+    static var categories = ["Any category"]
+    
+    private var selectedCategories: Set<String> = ["Any category"] {
+        didSet {
+            CategoriesMenu.categories = Array(selectedCategories)
+        }
+    }
     private let allCategories = ["Any category", "Programming", "Misc", "Dark", "Pun", "Spooky", "Christmas"]
     
     func show() {
